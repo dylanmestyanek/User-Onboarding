@@ -27,3 +27,23 @@
     font-size: .8rem;
   }
 }
+
+.cards-container {
+  width: 80%; 
+  margin: 0 auto;
+  background: pink;
+  display: flex;
+  flex-wrap: wrap;
+
+
+  .user-card {
+    width: 250px;
+    background: tan;
+    margin: 20px;
+    padding: 0 10px;
+
+    .info {
+      margin-top: 10px;
+    }
+  }
+}

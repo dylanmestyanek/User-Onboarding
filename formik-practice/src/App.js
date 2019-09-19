@@ -10,9 +10,11 @@ function App() {
   return (
     <div className="App">
       <FormikLoginForm users={users} setUsers={setUsers} />
-      {
-        users.map((user, index) => <UserCard key={index} user={user} />)
-      }
+      <div className="cards-container">
+        {
+          users.map((user, index) => <UserCard key={index} user={user} />)
+        }
+      </div>
     </div>
   );
 }
