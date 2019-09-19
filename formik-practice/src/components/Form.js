@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
 const LoginForm = ({ values, errors, touched }) => {
+    const [users, setUsers] = useState([]);
     return (
         <Form>
             <Field name="username" type="text" placeholder="Username" />
@@ -48,12 +49,13 @@ const FormikLoginForm = withFormik({
             .required("Invalid password")
     }),
 
-    handleSubmit() {
-        axios.post("https://reqres.in/api/users")
-            .then(respo => console.log(respo))
+    handleSubmit(values) {
+        axios.post("https://reqres.in/api/users", values)
+            .then(respo => {
+                // setUsers(values)
+                // console.log(users)
+                console.log(respo)})
             .catch(err => console.log("Whoopsies", err));
-
-        
     }
 })(LoginForm);
 
